@@ -24,3 +24,29 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Styles pour l'impression PDF */
+@media print {
+  /* Optimiser les marges */
+  @page {
+    margin: 1.5cm;
+  }
+
+  /* Forcer les couleurs */
+  * {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  /* Éviter les coupures de page dans les sections importantes */
+  .violation-item {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  /* Style pour les titres */
+  h1, h2, h3 {
+    page-break-after: avoid;
+    break-after: avoid;
+  }
+}
